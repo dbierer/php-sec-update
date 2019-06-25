@@ -11,4 +11,4 @@ echo "Resetting permissions"
 chown -R vagrant:www-data $TARGET/securitytraining
 chmod -R 775 $TARGET/securitytraining
 echo "Refreshing database"
-mysqlimport security -uvagrant -pvagrant ./securitytraining/data/sql/security.sql
+mysql -uvagrant -pvagrant security < ./securitytraining/data/sql/security.sql
