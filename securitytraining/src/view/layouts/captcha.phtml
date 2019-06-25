@@ -1,0 +1,39 @@
+<div class="body_padded">
+	<h1>Vulnerability: Insecure CAPTCHA</h1>
+	<p>(Look in the vulnerabilities folder under: <b>captcha</b>)</p>
+	<div class="vulnerable_code_area">
+	<?php if ($this->container->get('captcha')['site_key']) : ?>
+		<h3>Login</h3>
+		<form id="captcha" method="post">
+			<fieldset>
+				<label>First Name</label>
+				<input type="text" name="firstname" >
+				<label>Last Name</label>
+				<input type="text" name="lastname" >
+				<label>Username</label>
+				<input type="text" name="username" >
+				<label>Password</label>
+				<input type="password" name="password" >
+				<label>Password Confirm</label>
+				<input type="password" name="passconfirm" value="">
+				<div class="g-recaptcha" data-sitekey="<?php echo $this->config['zend']['site_key']?>"></div>
+				<script type="text/javascript"
+				        src="https://www.google.com/recaptcha/api.js?hl=<?php echo $this->config['zend']['lang']?>">
+				</script>
+				<p><input type="submit" value="Login" /></p>
+			</fieldset>
+		</form>
+		<?php echo $this->html ?>
+	<?php else :?>
+		<h3>A reCAPTCHA API key is required for this exercise.</h3>
+		<p>Please register for API keys from reCAPTCHA at:</p>
+		<a href="https://www.google.com/recaptcha/admin/create" target="_blank">Captcha Registration</a>
+		<p>and add them to the zend recaptcha config.</p>
+	<?php endif?>
+	</div>
+	<h2>For more info:</h2>
+	<ul>
+		<li><a href="http://www.captcha.net/" target="_blank">captcha.net</a></li>
+		<li><a href="http://www.google.com/recaptcha/" target="_blank">Google Captcha</a></li>
+	</ul>
+</div>

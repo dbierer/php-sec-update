@@ -1,0 +1,26 @@
+<div class=\"body_padded\">
+    <h1>ZEND Security <img src="images/sec.png" width="40" height="40"></h1>
+    <br/>
+    <h2>Script Security</h2>
+    <?php echo $this->securityHtml ?>
+    <form action="#" method="POST">
+        <?php echo $this->securityLevelHtml?>
+        <p>You can set the security level to without or with security.</p>
+        <p>The security level changes the vulnerability level of ZEND.</p>
+        <select name="security">
+            <?php echo $this->securityOptionsHtml?>
+        </select>
+        <input type="submit" value="Submit" name="seclev_submit">
+    </form>
+    <br/>
+    <hr/>
+    <br/>
+    <h2>PHPIDS</h2>
+    <p>" . $this->zendExternalLinkUrlGet('http://php-ids.org/', 'PHPIDS') . " v." . $this->phpids->zendPhpIdsVersionGet() . " (PHP-Intrusion Detection System) is a security layer for PHP based web applications. </p>
+    <p>You can enable PHPIDS across this site for the duration of your session.</p>
+
+    <p><?php echo $this->phpIdsHtml?></p>
+    [<a href="?test=%22>
+        <script>eval(window.name)</script>
+        ">Simulate attack</a>] - [<a href="ids_log.php">View IDS log</a>]
+</div>

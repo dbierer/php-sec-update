@@ -1,0 +1,23 @@
+<div class="body_padded">
+	<h1>Vulnerability: Insecure File Uploads</h1>
+	<p>(Look in the vulnerabilities folder under: <b>ifu/source</b>)</p>
+	<h3>Activity</h3>
+	<p>When uploading files on this server, this directory stores the files:</p>
+	<pre><?= wordwrap($this->getTargetPath(), 80, PHP_EOL, true) ?></pre>
+	<div class="vulnerable_code_area">
+		<form enctype="multipart/form-data" method="post" />
+			<label>Choose an image to upload</label>
+			<input name="uploaded" type="file" />
+			<input type="submit" name="Upload" value="Upload" />
+            <input type="hidden" name="action" value="ifu"/>
+		</form>
+		<br/>
+		<?php echo $this->html?>
+	</div>
+	<h2>For more info:</h2>
+	<ul>
+		<li><a href="http://www.owasp.org/index.php/Unrestricted_File_Upload" target="_blank">Unrestricted File Upload</a></li>
+		<li><a href="http://blogs.securiteam.com/index.php/archives/1268" target="_blank">Security Team Blogs</a></li>
+		<li><a href="http://www.acunetix.com/websitesecurity/upload-forms-threat.htm" target="_blank">Upload Forms Threat</a></li>
+	</ul>
+</div>

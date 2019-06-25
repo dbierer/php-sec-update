@@ -1,0 +1,21 @@
+<div class="body_padded">
+	<h1>Vulnerability: Insecure Direct Object References</h1>
+	<p>(Look in the vulnerabilities folder under: <b>idor</b>)</p>
+	<div class="vulnerable_code_area">
+		<h2>Look closely at this request URL:</h2>
+		<p><?= $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/' . $_SERVER['PHP_SELF'] . '?action=idor&img=img00011'?></p>
+		<a href="<?= 'index.php?action=idor&img=img00011'?>" target="_blank">Retrieve the image</a>
+		<p>The value of the <em>img</em> parameter is used to tell the application what image the user intends to retrieve. By providing the name or identifier of a different image (for example file=image00012) an attacker can retrieve resources, like images, belonging to someone else. To test, obtain a reference the attacker is not authorized to access, and access it by using the value of the changed image parameter.</p>
+		<p><b>Note:</b> This vulnerability is often exploited in conjunction with a directory/path traversal vulnerability (see Testing for Path Traversal)</p>
+	</div>
+    <?php if($this->html):?>
+	<div style="width: 200px;margin: 0 auto;">
+		<?php echo $this->html?>
+	</div>
+    <?php endif;?>
+	<div class="tools">
+		<h2>Tools</h2>
+		<h3><a href="https://github.com/chakrit/simple-acl" target="_blank">Simple ACL</a></h3>
+		<p>SimpleAcl is a framework-agnostic ACL implementation. It is pre-loaded with <em>Composer</em> and available in the vendor directory.</p>
+	</div>
+</div>

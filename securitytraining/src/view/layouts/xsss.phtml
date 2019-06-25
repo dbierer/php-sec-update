@@ -1,0 +1,34 @@
+<div class="body_padded">
+	<h1><nobr>Vulnerability: Stored Cross Site Scripting (XSS)</nobr></h1>
+	<p>Reference directory: vulnerabilities/xsss/*.</p>
+	<div class="vulnerable_code_area">
+		<form name="xsssform" method="post">
+		<label class=\"block\">Type</label>
+		<input name="type" type="text" size="8" maxlength="8"></td>
+		<br /><br /><input name="btnView" type="submit" value="View Flower" /></td>
+		</form>
+		<br />
+        <hr>
+        <h1 style="text-align:center;">Look At the Pretty Flower!</h1>
+        <hr>
+        <table>
+        <tr>
+        <td>
+        <p>Try entering: "pink", "orange" or "purple"</p>
+        <br>Open the browser tools and select <i>Network</i>
+        <br>Now try entering "pink"
+        <br><i>Have You Been Hacked?</i>
+        </td>
+        <td>
+        <br><?= $this->html ?>
+        </td>
+        </tr>
+        </table>
+	</div>
+	<br /><br />
+	<h2>For more info:</h2>
+	<ul>
+		<li><a href="http://en.wikipedia.org/wiki/Cross-site_scripting" target="_blank">Wiki XSS</a></li>
+		<li><a href="http://www.cgisecurity.com/xss-faq.html" target="_blank">CGI Security FAQ</a></li>
+	</ul>
+</div>

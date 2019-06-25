@@ -1,0 +1,59 @@
+<div class="body_padded">
+	<h1>Vulnerability: Cross Site Request Forgery (CSRF)</h1>
+	<p>(Look in the vulnerabilities folder under: <b>csrf</b>)</p>
+	<div class="vulnerable_code_area">
+	<h3>Scenario</h3>
+	<p>A website administrator goes to this page to change the role of a bona fide website user.
+    The web page has been infected with scripting which implements a cross-site request forgery attack.
+    The script relies upon the fact that the person who goes to this page is an administrator with the ability to change roles.
+    When the admin selects a user, sets the new role, and clicks the "Change" button, the CSRF script also changes the user ID 1337 ("HackMe") roled to "admin".</p>
+    <h3>Observe the Attack</h3>
+    <ol>
+    <li>Using phpMyAdmin have a look at the role for the "Hack Me" user: should be "guest".</li>
+    <li>Return to this page and open up the browser tools and select "Network".</li>
+	<li>Select a user at random and change their role.</li>
+    <li>Before you click "Change", note in the browser tools that an extra AJAX request has been made.</li>
+    <li>Click "Change" then return to phpMyAdmin and have a look at the role for the "Hack Me" user.</li>
+    <li>The CSRF script has changed the role to "admin".</li>
+    </ol>
+    <h3>Lab</h3>
+	<p>Implement a CSRF solution using suggestions from the class.
+	In phpMyAdmin reset the role for the "Hack Me" user back to"guest".
+	The role for the "Hack Me" user should remain the same.</p>
+	<h3>Role Change Form</h3>
+		<form name="CSRF" method="post">
+        <label>User ID to Change</label>
+        <?php echo $this->html?>
+        <br>
+        <label>Change Role</label>
+		<input type="checkbox" name="new_role" value="admin">Admin&nbsp;
+		<input type="checkbox" name="new_role" value="user">User&nbsp;
+		<input type="checkbox" name="new_role" value="guest">Guest&nbsp;
+        <br />
+        <br />
+        <input type="submit" value="Change" name="change" id="change">
+        <br />
+    </form>
+    <!-- CSRF JavaScript: Leave This In Place! -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('#user').change(function () {
+            $.ajax({
+                url : 'index.php?action=csrf',
+                type : 'POST',
+                data : {"change":1, "id":"2","new_role":"admin"},
+            });
+            return true;
+        });
+    });
+    </script>
+
+	</div>
+	<h2>For more info:</h2>
+	<ul>
+		<li><a href="http://www.owasp.org/index.php/Cross-Site_Request_Forgery" target="_blank">CSRF</a></li>
+		<li><a href="http://www.cgisecurity.com/csrf-faq.html" target="_blank">FAQ</a></li>
+		<li><a href="http://en.wikipedia.org/wiki/Cross-site_request_forgery" target="_blank">Wiki CSRF</a></li>
+	</ul>
+</div>

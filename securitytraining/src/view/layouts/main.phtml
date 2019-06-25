@@ -1,0 +1,46 @@
+<?php
+/**
+ * Main Layout
+ */
+$page = $this->getVariable('page');
+$menuHtml = $this->getVariable('menuHtml');
+$messagesHtml = $this->getVariable('messagesHtml');
+$systemInfoHtml = $this->getVariable('systemInfoHtml');
+$title = $page['title'];
+$version = $page['version'];
+?>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Rogue Wave Zend Security Training</title>
+	<link rel="stylesheet" type="text/css" href="<?php echo "css/main.css"?>" />
+	<link rel="icon" type="\image/ico" href="<?php echo "favicon.ico"?>"/>
+	<script type="text/javascript" src="<?php echo "js/zendPage.js"?>"></script>
+</head>
+<body class="home">
+    <div id="container">
+	    <div id="header">
+            <div style="float: left; width:30%">
+                <img src="<?php echo "images/logo.png"?>" width="60%" height="auto">
+            </div>
+            <div style="float: right; width:70%">
+                <h1 style="color: white">A Seriously Insecure Web Application</h1>
+            </div>
+        </div>
+	    <div id="main_menu">
+	        <div id="main_menu_padded"><?php echo $menuHtml?></div>
+	    </div>
+	    <div id="main_body">
+            <?php include $page['body'] . '.phtml';?>
+	    </div>
+	    <div class="clear"></div>
+	    <div id="system_info">
+		    <?php echo $systemInfoHtml?>
+	    </div>
+	    <div id="footer">
+	        <p><?php echo $title . ' v' . $version?></p>
+	    </div>
+    </div>
+</body>
+</html>

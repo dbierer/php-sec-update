@@ -1,0 +1,18 @@
+<?php
+$url = $this->url . 'index.php?action=ufi&page=';
+?>
+<div class="body_padded">
+	<h1>Vulnerability: Unrestricted File Inclusion</h1>
+	<p>(Look in the vulnerabilities folder under: <b>ufi/source</b>)</p>
+	<div class="vulnerable_code_area">
+        <p>As an example, post this URL which specifies a file to include: <br><a href="<?= $url . 'include.php'?>"><?= $url . 'include.php'?></a></p>
+        <p>Now try this altering the URL in the browser by setting the <i>page</i> parameter as follows:</p>
+        <pre>action=ufi&amp;page=../../../../public/malicious.php</pre>
+		<?= $this->html?>
+	</div>
+	<h2>For more info:</h2>
+	<ul>
+		<li><a href="http://en.wikipedia.org/wiki/Remote_File_Inclusion" target="_blank">Remote File Inclusion</a></li>
+		<li><a href="https://www.owasp.org/index.php/Top_10_2007-A3" target="_blank">OWASP Malicious File Execution</a></li>
+	</ul>
+</div>

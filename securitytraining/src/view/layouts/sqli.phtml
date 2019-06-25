@@ -1,0 +1,22 @@
+<div class="body_padded">
+	<h1>Vulnerability: SQL Injection</h1>
+	<p>Valid entry: 1, 2, 3 etc.</p>
+	<p>(Look in the vulnerabilities folder under: <b>sqli</b>)</p>
+	<div class=\"vulnerable_code_area\">
+		<h3>User ID:</h3>
+		<form action="index.php" method="get">
+			<input type="text" name="id">
+            <input type="hidden" name="action" value="sqli">
+			<input type="submit" name="Submit" value="Submit">
+		</form>
+		<?php echo $this->html?>
+	</div>
+	<br/>
+	<h2>For more info:</h2>
+	<ul>
+		<li><a href="http://www.securiteam.com/securityreviews/5DP0N1P76E.html" target="_blank">Security Reviews</a></li>
+		<li><a href="http://en.wikipedia.org/wiki/SQL_injection" target="_blank">Wiki SQL Injection</a></li>
+		<li><a href="http://ferruh.mavituna.com/sql-injection-cheatsheet-oku/" target="_blank">SQL Injection Cheatsheet</a></li>
+		<li><a href="http://pentestmonkey.net/cheat-sheet/sql-injection/mysql-sql-injection-cheat-sheet"target="_blank">MySQL Injection Cheatsheet</a></li>
+	</ul>
+</div>

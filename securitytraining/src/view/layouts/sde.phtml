@@ -1,0 +1,53 @@
+<div class="body_padded">
+	<h1>Vulnerability: Sensitive Data Exposure</h1>
+	<p>(Look in the vulnerabilities folder under: <b>sde</b>)</p>
+    <h2>Activity</h2>
+    <p>Try entering a valid username using only alphanumerics, and a strong password of 8 characters, with a mixture of UPPERCASE, lowercase, numbers and special characters.</p>
+    <p>Now try the same thing again, but with a bad username and insecure password.</p>
+    <p><b>OBSERVE:</b> does the site allow bad usernames and passwords?</p>
+	<h2>Register for our cool service</h2>
+	<form method="post">
+		Username:<br><input type="text" name="username"><br />
+		Password:<br><input type="password" AUTOCOMPLETE="off" name="password">
+		<br/><br/><input type="submit" value="Register" name="action">
+	</form>
+	<?php echo $this->html?>
+	<br>
+	<div class="tools">
+		<h2>Tools</h2>
+        <table width="100%">
+        <tr><th style="font-size:14pt;color:#92BACA;text-align:left;">Reference</th><th style="font-size:14pt;color:#92BACA;text-align:left;">Examples</th></tr>
+		<tr>
+            <td><a href='https://paragonie.com/book/pecl-libsodium' target="_blank">Using Libsodium in PHP applications</a></td>
+            <td><a href=<?= $this->url . 'source.php?src=libsodium'?> target='_blank'>Libsodium</a></td>
+        </tr>
+        <tr>
+            <td><a href='http://php.net/manual/en/ref.password.php/' target='_blank'>Password Hashing API</a></td>
+            <td><a href=<?= $this->url . 'source.php?src=password-hash'?> target='_blank'>password_hash()</a></td>
+        </tr>
+        <tr>
+            <td><a href='http://php.net/manual/en/book.csprng.php/' target='_blank'>PHP CSPRNG API</a></td>
+            <td><a href=<?= $this->url . 'source.php?src=php-CSPRNG'?> target='_blank'>CSPRNG</a></td>
+        </tr>
+        <tr>
+            <td><a href='https://www.php.net/manual/en/book.hash.php' target='_blank'>Hash API</a></td>
+            <td><a href=<?= $this->url . 'source.php?src=hash'?> target='_blank'>hash_hmac()</a></td>
+        </tr>
+        <tr>
+            <td><a href='https://www.php.net/crypt' target='_blank'>crypt() Function Docs</a></td>
+            <td><a href=<?= $this->url . 'source.php?src=crypt'?> target='_blank'>crypt()</a></td>
+        </tr>
+        <tr>
+            <td><a href='https://www.php.net/openssl' target='_blank'>OpenSSL Extension API</a></td>
+            <td><a href=<?= $this->url . 'source.php?src=OpenSSL'?> target='_blank'>openssl_encrypt()</a></td>
+        </tr>
+        </table>
+	</div>
+    <div>
+        <h2>Authentication Service Resources:</h2>
+        <ul>
+            <li><a href="https://developer.okta.com/" target="_blank">Okta Identify API</a></li>
+            <li><a href="https://www.onelogin.com" target="_blank">Onelogin Indentity API</a></li>
+        </ul>
+    </div>
+</div>

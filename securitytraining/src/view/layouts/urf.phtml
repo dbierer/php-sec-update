@@ -1,0 +1,27 @@
+<div class="body_padded">
+	<h1>Vulnerability: <br><br>Unvalidated Redirects and Forwards </h1>
+	<p>(Look in the vulnerabilities folder under: <b>urf</b>)</p>
+	<div class="vulnerable_code_area">
+		<h2>Make your choice:</h2>
+		<form action="#" method="get" />
+			<select name='url'>
+				<option value = 'http://www.zend.com'>Rogue Wave Zend</option>
+				<option value = 'http://www.google.com'>Google</option>
+			</select>
+            <input type="hidden" name="action" value="urf">
+			<br /><br />
+			<input type="submit" value="Send Form" />
+			<a href="/malicious.php" target="_blank">Malicious site</a>
+		</form>
+		<?php echo $this->html?>
+        <br/>
+		<h2>For more info:</h2>
+		<ul>
+			<li><a href="https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project" target="_blank">Owasp Top 10</a></li>
+			<li><a href="http://owasp-esapi-java.googlecode.com/svn/trunk_doc/latest/org/owasp/esapi/AccessController.html" target="_blank"></a></li>
+			<li><a href="https://www.owasp.org/index.php/Guide_to_Authorization" target="_blank">Guide to Authorization</a></li>
+			<li><a href="https://www.owasp.org/index.php/Testing_for_Path_Traversal" target="_blank">Testing for Path Traversal</a></li>
+			<li><a href="https://www.owasp.org/index.php/Forced_browsing" target="_blank">Forced Browsing</a></li>
+		</ul>
+	</div>
+</div>

@@ -1,0 +1,27 @@
+<div class="body_padded">
+	<h1><nobr>Vulnerability: Reflected Cross Site Scripting (XSS)</nobr></h1>
+	<p>(Look in the vulnerabilities folder under: <b>xss_r</b>)</p>
+	<div class="vulnerable_code_area">
+		<form name="XSS" method="post">
+			<label>What's your name?</label>
+			<input type="text" name="name"> try someting like &lt;b style="color:red"&gt;
+			<br /><br /><input type="submit" value="Submit">
+            <input type="hidden" name="action" value="xssr" />
+		</form>
+		<br />
+		<?= $this->html?>
+	</div>
+
+	<div class="tools">
+		<h2>Tools (click link to demo):</h2>
+		<h3>White Listing With Tidy</h3>
+        <a href=<?= $this->url . 'source.php?src=tidy&escape=1&run=0'?> target='_blank'>Tidy Class Implementation:</a>
+		<p>The source is available in the <code>vulnerabilities/xss_r/tools</code> directory.</p>
+	</div>
+
+	<h2>Reference:</h2>
+	<ul>
+		<li><a href="http://en.wikipedia.org/wiki/Cross-site_scripting" target="_blank">Wiki XSS</a></li>
+		<li><a href="http://www.cgisecurity.com/xss-faq.html" target="_blank">CGI Security FAQ</a></li>
+	</ul>
+</div>

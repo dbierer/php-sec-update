@@ -1,0 +1,37 @@
+<div class="body_padded">
+	<h1><nobr>Vulnerability: eXternal Xml Entities (XXE)</nobr></h1>
+	<p>Reference directory: vulnerabilities/xxe/*.</p>
+	<div class="vulnerable_code_area">
+        <h3>Observe the Attack</h3>
+        <ol>
+        <li>Open a terminal window and change to the directory containing the "with.php" code:
+            <pre>cd /home/vagrant/Zend/workspaces/DefaultWorkspace/securitytraining/src/vulnerabilities/xxe/source</pre>
+        </li>
+        <li>Use the built-in PHP webserver to simulate a SOAP service:
+            <pre>php -S localhost:9999 soap.php</pre>
+        </li>
+        <li>Return to this page and observe the list of guestbook comments.</li>
+        <li>Return to the terminal window, and use cURL to upload the malicious XML document using this command:
+            <pre>curl -X POST -d @bad.xml http://localhost:9999</pre>
+        </li>
+        <li>Return to this page and observe that you now see a JavScript "alert()" when browsing the list of guestbook comments.</li>
+        </ol>
+        <h3>Guestbook Listings</h3>
+        <?= $this->html ?>
+        <br><form name="XXE" method="post">
+        <b>Post Comment:</b>&nbsp;&nbsp;Name <input type="text" name="name" /> Comment <input type="text" name="comment" /> <input type="submit" value="Submit" />
+        </form>
+        <br>
+        <h3>Lab</h3>
+        <p>Implement a solution using suggestions from the class.</p>
+	</div>
+	<div class="tools">
+		<h2>Tools</h2>
+        <a href=<?= $this->url . 'source.php?src=xxe'?> target='_blank'>Bad XML File to Upload</a></td>
+	</div>
+	<h2>For more info:</h2>
+	<ul>
+		<li><a href="https://www.owasp.org/index.php/XML_External_Entity_(XXE)_Processing" target="_blank">OWASP Description of XXE</a></li>
+		<li><a href="https://www.owasp.org/index.php/Testing_for_XML_Injection_(OTG-INPVAL-008)" target="_blank">Testing for SOAP Injection</a></li>
+	</ul>
+</div>

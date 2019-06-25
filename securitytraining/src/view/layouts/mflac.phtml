@@ -1,0 +1,15 @@
+<div class="body_padded">
+    <h1>Vulnerability: Missing Function ACL </h1>(Access Control Level)
+    <p>(Look in the vulnerabilities folder under: <b>mflac</b>)</p>
+    <div class="vulnerable_code_area">
+        <h2>Enter a user name</h2> (choose among Admin, Gordon, Hack, Pablo, Bob)
+        <form method="post"/>
+            <label>Input a user name:</label>
+            <input name="name" type="text"/>
+            <input type="hidden" name="action" value="mflac">
+            <input type="submit" value="Submit"/>
+        </form>
+        <br>
+		<?php echo $this->html ?>
+    </div>
+</div>

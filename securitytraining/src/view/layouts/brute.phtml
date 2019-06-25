@@ -1,0 +1,31 @@
+<div class="body_padded">
+	<h1>Vulnerability: Brute Force</h1>
+	<p>(Look in the vulnerabilities folder under: <b>brute</b>)</p>
+    <div class=\"vulnerable_code_area\">
+        <h2>Login</h2>
+        <form method="post">
+            <label>Username</label>
+            <input type="text" name="username"> users: admin, Bob, Gordon, Pablo, Hack or try with ' or '1'='1' -- <br>
+            <label>Password</label>
+            <input type="password" AUTOCOMPLETE="off" name="password">
+            <input type="hidden" name="action" value="brute">
+            <br/><br/><input type="submit" value="Login" name="Login">
+        </form>
+        <?php echo $this->html;?>
+    </div>
+    <br><br>
+	<div class="tools">
+		<h2>Tools (click link to demo):</h2>
+        <a href=<?= $this->url . 'source.php?src=brute_force_detector'?> target='_blank'>Brute Force Detector:</a>
+        <p>A class implementation is available in the tools directory.</p>
+	</div>
+    <div class="tools">
+        <h2>Reference:</h2>
+        <ul>
+            <li><a href="https://hashcat.net/hashcat/" target='_blank'>Hashcat Advanced Password Recovery:</a>
+            <br>Installed in the Vagrant home directory. To envoke a test from the shell, enter the directory ~/hashcat&lt;version&gt;, and execute: <b>./example0.sh</b></li>
+            <li><a href="https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project" target='_blank'>Zed Attack Proxy Project</a>: Launch the application from either the shell with the command <b>zap</b> or from the task launcher if locked.</li>
+            <li><a href="http://www.edge-security.com/wfuzz.php" target='_blank'>Brute Forcer</a></li>
+        </ul>
+    </div>
+</div>
