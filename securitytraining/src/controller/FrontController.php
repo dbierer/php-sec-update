@@ -37,7 +37,7 @@ class FrontController {
         if ($_POST) {
             $referer = $_SERVER['HTTP_REFERER'];
             preg_match('/action=(\w+?)$/', $referer, $matches);
-            if ($matches[1]) {
+            if (!empty($matches[1])) {
                 $this->action = $matches[1];
                 if (isset($this->session['username'])) {
                      if (array_key_exists($this->action, $menuActions['vulnerabilities'])) {
@@ -103,7 +103,8 @@ class FrontController {
     public function loginAction() {
         $data = null;
         if($this->authenticate()){
-            $this->pushMessage("You are logged in as '" . $data['username'] . "'");
+			$user = $data['username'] ?? 'Guest';
+            $this->pushMessage("You are logged in as '" . $user . "'");
             $page          = $this->container->get('page');
             $page['title'] .= $page['title_separator'] . 'Welcome';
             $this->view->setTemplate('main');

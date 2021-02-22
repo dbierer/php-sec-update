@@ -12,3 +12,10 @@ chown -R vagrant:www-data $TARGET/securitytraining
 chmod -R 775 $TARGET/securitytraining
 echo "Refreshing database"
 mysql -uvagrant -pvagrant security < ./securitytraining/data/sql/security.sql
+echo "Updating composer packages"
+cd $TARGET/securitytraining
+composer update
+echo "Applying patches"
+sed -i 's/class_alias/\/\/ class_alias/g' vendor/zendframework/zend-test/autoload/phpunit-class-aliases.php
+echo "Installing phpMyAdmin"
+apt install phpmyadmin
