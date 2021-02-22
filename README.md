@@ -1,5 +1,12 @@
 # PHP SECURITY CLASS 2021
 
+## Homework
+* For Tue 23  Feb
+  * Firefox and Security Training App
+  * Lab: SQL Injection
+  * Lab: Brute Force
+  * Lab: ZAP
+    * https://chrisdecairos.ca/intercepting-traffic-with-zaproxy/
 ## VM Updates
 * Update the OS (no need to *upgrade*)
   * Bring up the VM and login (user: vagrant, pwd: vagrant)
