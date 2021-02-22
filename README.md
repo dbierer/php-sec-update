@@ -1,4 +1,4 @@
-# PHP SECURITY CLASS Jun 2019
+# PHP SECURITY CLASS 2021
 
 ## VM Updates
 * The source code in the VM needs to be updated.  Please do the following:
@@ -6,11 +6,11 @@
   * Change to the `/home/vagrant` directory
   * Clone from the update repo:
 ```
-git clone https://github.com/dbierer/php-sec-update-jun-2019.git
+git clone https://github.com/dbierer/php-sec-update.git
 ```
   * Change to the new directory just cloned:
 ```
-cd php-sec-update-jun-2019
+cd php-sec-update
 ```
   * Run the copy script as root:
 ```
