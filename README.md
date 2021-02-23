@@ -1,6 +1,10 @@
 # PHP SECURITY CLASS 2021
 
 ## Homework
+* For Wed 24 Feb
+  * Lab: Cross-Site Scripting (XSS)
+  * Lab: Cross Site Request Forgery (CSRF)
+  * Lab: Security Misconfiguration
 * For Tue 23  Feb
   * Firefox and Security Training App
   * Lab: SQL Injection
@@ -84,7 +88,8 @@ CREATE TABLE `bfdetect` (
 * https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=XSS+PHP
 * Definition: https://cwe.mitre.org/data/definitions/79.html
 * Tools: https://www.php.net/tidy
-* TOOL: https://www.virustotal.com/#/home/url
+* Tool: https://www.virustotal.com/#/home/url
+* Tool: https://owasp.org/www-community/xss-filter-evasion-cheatsheet
 ### XXE
 * https://news.lazyhackers.in/2021/01/06/a-deep-dive-into-xxe-injection/
 * Definition: https://cwe.mitre.org/data/definitions/611.html
