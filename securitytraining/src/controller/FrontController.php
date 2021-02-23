@@ -120,8 +120,11 @@ class FrontController {
         $data = NULL;
         try{
             $stmt = $this->pdo->prepare('SELECT * FROM users WHERE user = ?');
-            $stmt->execute([$this->user['username']]);
-            $data = $stmt->fetch(\PDO::FETCH_ASSOC);
+            $name = $this->user['username'] ?? '';
+            if ($name) {
+				$stmt->execute([$name]);
+				$data = $stmt->fetch(\PDO::FETCH_ASSOC);
+			}
             // Check if we have login
             if($data) {
                 $valid = FALSE;

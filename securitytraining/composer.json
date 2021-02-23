@@ -1,0 +1,26 @@
+{
+    "name": "Security_Training",
+    "description": "Security training vulnerability application",
+    "license": "BSD-3-Clause",
+    "keywords": [
+        "security",
+        "zf"
+    ],
+    "homepage": "http://securitytraining/",
+    "require": {
+        "php": ">=7.2",
+        "zendframework/zendframework": "*",
+        "laminas/laminas-servicemanager": "*",
+        "guzzlehttp/guzzle": "*",
+        "alexshelkov/simpleacl": "*",
+        "ezyang/htmlpurifier": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "src\\": "src/"
+        }
+    }
+}
