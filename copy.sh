@@ -28,4 +28,4 @@ cd phpMyAdmin-5.0.4-all-languages
 cp -rf * /etc/phpmyadmin
 rm phpMyAdmin-5.0.4-all-languages.zip
 rm -rf phpMyAdmin-5.0.4-all-languages
-ln -s /etc/phpmyadmin /var/www/html/phpmyadmin
+ln -s -f /etc/phpmyadmin /var/www/html/phpmyadmin
