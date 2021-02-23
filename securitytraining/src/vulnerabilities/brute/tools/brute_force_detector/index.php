@@ -3,7 +3,7 @@
  * PHP BruteForce Attack Detector
  */
 use src\tools\BruteForceDetector;
-use Zend\ServiceManager\ServiceManager;
+use Laminas\ServiceManager\ServiceManager;
 require __DIR__ . '/../../../../../vendor/autoload.php';
 $config = require(__DIR__ . '/../../../../../config/config.php');
 $container = new ServiceManager($config);
