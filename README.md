@@ -110,6 +110,16 @@ CREATE TABLE `bfdetect` (
 ### Using Components with Known Vulnerabilities
 * https://nvd.nist.gov/products/cpe/search
   * and then enter the name of the product you want to investigate
+### Broken Authentication and Session Management
+* Definition: https://cwe.mitre.org/data/definitions/724.html
+### Insecure Direct Object References
+* Objects == the target of links, menus, etc.
+* https://www.netsparker.com/blog/web-security/insecure-direct-object-reference-vulnerabilities-idor/
+### Missing Function Access Level Control (ACL)
+* Tools: https://github.com/potievdev/slim-rbac (middleware)
+* Tools: https://docs.laminas.dev/laminas-permissions-acl/usage/
+### Unvalidated Redirects and Forwards
+* Tools: https://cheatsheetseries.owasp.org/cheatsheets/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html
 
 
 ## Resources
@@ -120,6 +130,8 @@ US Govt Security Vulnerabilities Database
 * https://nvd.nist.gov/vuln/search
 * Old class notes:
   * https://github.com/dbierer/php-class-notes/blob/master/php-security-notes-2019.md
+OWASP Cheat Sheet Series
+* https://cheatsheetseries.owasp.org/Glossary.html
 
 # Summary of Preventative Measures
 
