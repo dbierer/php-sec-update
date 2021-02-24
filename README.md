@@ -1,6 +1,12 @@
 # PHP SECURITY CLASS 2021
 
 ## Homework
+* For Thu 25 Feb
+  * Lab: Insecure Deserialization
+  * Lab: Using Components with Known Vulnerabilities
+  * Lab: Insecure Direct Object References
+  * Lab: Missing Function Access Level Control (ACL)
+  * Lab: Unvalidated Redirects and Forwards
 * For Wed 24 Feb
   * Lab: Cross-Site Scripting (XSS)
   * Lab: Cross Site Request Forgery (CSRF)
@@ -132,6 +138,8 @@ US Govt Security Vulnerabilities Database
   * https://github.com/dbierer/php-class-notes/blob/master/php-security-notes-2019.md
 OWASP Cheat Sheet Series
 * https://cheatsheetseries.owasp.org/Glossary.html
+Project Honeypot
+* https://www.projecthoneypot.org/
 
 # Summary of Preventative Measures
 
@@ -271,7 +279,7 @@ LAB: quick test: download form, make a change, submit manually, and see that you
 ## Insecure Deserialization
 * 1: Maybe don't store such information in a cookie: store someplace else (i.e. the Session)
 * 2: Enumerate the strategies and only store the enumeration in the cookie; upon return compare with a whitelist of strategies
-* 3: Create a digital signature or hash of the object to be stored and confirm upon restoration
+* 3: Create a digital signature or hash of the serialized object prior to storage and confirm upon restoration
 * 4: Check to see if `__wakeup()` has been defined, and if so, make sure it doesn't invalidate security measures when object is restored
 
 ## Command Injection
@@ -294,3 +302,5 @@ LAB: quick test: download form, make a change, submit manually, and see that you
 * 1: consider using "code obfuscation" to obscure your javascript to slow down potential attacks from this vector
 * 2: consider using "minified" JS libraries which improves performance and is more difficult to read
 
+## Miscellaneous
+* 1: create links that follow known attack vectors (e.g. `/wp-login`) that just wastes time and collects attacker data
