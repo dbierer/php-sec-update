@@ -126,7 +126,31 @@ CREATE TABLE `bfdetect` (
 * Tools: https://docs.laminas.dev/laminas-permissions-acl/usage/
 ### Unvalidated Redirects and Forwards
 * Tools: https://cheatsheetseries.owasp.org/cheatsheets/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html
-
+### Secure File Uploads
+* ZF Example:
+  * https://github.com/dbierer/zf-master-aug-2019/blob/master/onlinemarket.work/module/Market/src/Controller/PostController.php
+  * https://github.com/dbierer/zf-master-aug-2019/blob/master/onlinemarket.work/module/Market/src/Form/PostForm.php
+  * https://github.com/dbierer/zf-master-aug-2019/blob/master/onlinemarket.work/module/Market/src/Form/PostFilter.php
+```
+use Zend\InputFilter\FileInput;
+use Laminas\Filter\File\RenameUpload;
+use Laminas\Validator\File\ {FilesSize, IsImage, ImageSize};
+$photo = new FileInput('photo_filename');
+$maxImgSize = new ImageSize($this->uploadConfig['img_size']);
+$maxFileSize = new FilesSize($this->uploadConfig['file_size']);
+$isImage = new IsImage();
+$photo->getValidatorChain()
+            ->attach($maxImgSize)
+            ->attach($maxFileSize)
+            ->attach($isImage);
+$rename = new RenameUpload($this->uploadConfig['rename']);
+$photo->getFilterChain()->attach($rename);
+```
+### Insecure CAPTCHA
+* https://www.smbc-comics.com/comic/reverse-captcha
+* https://developers.google.com/recaptcha/
+* https://www.vice.com/en/article/gy8g8b/humans-not-invited-is-a-captcha-test-for-robots
+* http://www.humansnotinvited.com/
 
 ## Resources
 CVE Details
