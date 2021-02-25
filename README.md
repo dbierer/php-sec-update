@@ -1,6 +1,11 @@
 # PHP SECURITY CLASS 2021
 
 ## Homework
+* For Fri 26 Feb
+  * Lab: Command Execution
+  * Lab: Unrestricted File Inclusion  
+  * Lab: Secure File Uploads
+  * Lab: Insecure CAPTCHA
 * For Thu 25 Feb
   * Lab: Insecure Deserialization
   * Lab: Using Components with Known Vulnerabilities
@@ -132,7 +137,8 @@ CREATE TABLE `bfdetect` (
   * https://github.com/dbierer/zf-master-aug-2019/blob/master/onlinemarket.work/module/Market/src/Form/PostForm.php
   * https://github.com/dbierer/zf-master-aug-2019/blob/master/onlinemarket.work/module/Market/src/Form/PostFilter.php
 ```
-use Zend\InputFilter\FileInput;
+// in the Filter class:
+use Laminas\InputFilter\FileInput;
 use Laminas\Filter\File\RenameUpload;
 use Laminas\Validator\File\ {FilesSize, IsImage, ImageSize};
 $photo = new FileInput('photo_filename');
@@ -145,6 +151,13 @@ $photo->getValidatorChain()
             ->attach($isImage);
 $rename = new RenameUpload($this->uploadConfig['rename']);
 $photo->getFilterChain()->attach($rename);
+```
+```
+// in the controller:
+// combine $_POST with $_FILES
+$data = array_merge($this->params()->fromPost(), $this->params()->fromFiles());
+$this->postForm->setData($data);
+if ($this->postForm->isValid()) { // etc. }
 ```
 ### Insecure CAPTCHA
 * https://www.smbc-comics.com/comic/reverse-captcha
@@ -328,3 +341,12 @@ LAB: quick test: download form, make a change, submit manually, and see that you
 
 ## Miscellaneous
 * 1: create links that follow known attack vectors (e.g. `/wp-login`) that just wastes time and collects attacker data
+
+# ERRATA
+* IDSZ Lab: change `securitytraining.phpsecurity.local` to `securitytraining` in the lab instructions
+* IDOR Lab: the solution code has the wrong URL for image
+* Slide: http://localhost:9999/#/4/11:
+```
+$page_to_load = $goodFiles[$index] ?? $goodFiles[1];
+```
+* Slide: http://localhost:9999/#/4/17: `move_uploaded file()` missing `_`
