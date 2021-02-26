@@ -114,6 +114,8 @@ CREATE TABLE `bfdetect` (
 * Tools: Zend Server
 * Tools: (for Linux) logwatch
 * Tools: Monitoring: Nagios: https://www.nagios.com/
+* Sample log file is in `/sample_data/access.log`
+  * Look for this IP address: `156.146.57.84` in the log file
 ### Insecure Deserialization
 * https://thehackerish.com/insecure-deserialization-explained-with-examples/
 * (not PHP, but shows danger) https://www.zerodayinitiative.com/blog/2020/3/5/cve-2020-2555-rce-through-a-deserialization-bug-in-oracles-weblogic-server
@@ -177,6 +179,8 @@ OWASP Cheat Sheet Series
 * https://cheatsheetseries.owasp.org/Glossary.html
 Project Honeypot
 * https://www.projecthoneypot.org/
+* Additional Resources on Cryptographic Stuff
+  * snefru: https://en.wikipedia.org/wiki/Snefru
 
 # Summary of Preventative Measures
 
@@ -350,3 +354,6 @@ LAB: quick test: download form, make a change, submit manually, and see that you
 $page_to_load = $goodFiles[$index] ?? $goodFiles[1];
 ```
 * Slide: http://localhost:9999/#/4/17: `move_uploaded file()` missing `_`
+* Slide: http://localhost:9999/#/5/12: "Block Cipher Summary: Less Common Algorithms"
+  * Algorithm is not correct
+  
